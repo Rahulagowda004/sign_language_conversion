@@ -32,7 +32,7 @@ class PrepareBaseModel:
         input_shape = (224, 224, 3)
         inputs = tf.keras.layers.Input(shape=input_shape)
             
-        block_output = model.get_layer('block5_pool').output
+        block_output = model.output
 
         flatten_in = tf.keras.layers.Flatten()(block_output)
         
