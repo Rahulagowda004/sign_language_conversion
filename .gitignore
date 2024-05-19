@@ -165,3 +165,4 @@ artifacts/*
 checkpoints/*
 temp/*
 settings.json
+extensions.json
