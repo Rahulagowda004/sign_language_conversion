@@ -29,7 +29,6 @@ class ConfigurationManager:
 
         return data_ingestion_config
     
-class ConfigurationManager:
     def __init__(
         self,
         config_filepath = CONFIG_FILE_PATH,
