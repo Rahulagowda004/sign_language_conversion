@@ -166,3 +166,5 @@ checkpoints/*
 temp/*
 settings.json
 extensions.json
+
+beta_code/data/*
