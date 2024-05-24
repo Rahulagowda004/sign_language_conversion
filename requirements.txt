@@ -19,4 +19,5 @@ Flask-Cors
 gdown
 opencv-python
 mediapipe
+scikit-learn
 -e .
