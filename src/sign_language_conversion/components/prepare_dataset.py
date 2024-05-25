@@ -9,7 +9,7 @@ class Prepare_dataset:
         self.config = config
 
     @staticmethod
-    def _prepare_full_model(data_dir):
+    def _prepare_dataset(data_dir):
         mp_hands = mp.solutions.hands
 
         hands = mp_hands.Hands(static_image_mode=True, min_detection_confidence=0.3)
@@ -48,7 +48,7 @@ class Prepare_dataset:
         return {'data': data, 'labels': labels}
 
     def save_data(self):
-        data = self._prepare_full_model(self.config.dataset)
+        data = self._prepare_dataset(self.config.dataset)
 
         with open(self.config.root_dir / 'data.pickle', 'wb') as f:
             pickle.dump(data, f)
