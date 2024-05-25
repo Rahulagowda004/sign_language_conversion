@@ -19,11 +19,11 @@ Clone the repository
 
 ```bash
 https://github.com/Rahulagowda004/sign_language_conversion
+```
 
 ### STEP 01- Create a conda environment after opening the repository
-
 ```bash
-python3 -m venv .venv
+python -m venv .venv
 ```
 
 ```bash
