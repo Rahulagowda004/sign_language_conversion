@@ -20,3 +20,10 @@ class TrainingConfig:
     trained_model_path: Path
     dataset_path: Path
     n_estimators: int
+    
+@dataclass(frozen=True)
+class EvaluationConfig:
+    path_of_model: Path
+    training_data: Path
+    all_params: dict
+    mlflow_uri: str
