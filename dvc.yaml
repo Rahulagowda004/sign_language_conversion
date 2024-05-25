@@ -7,22 +7,12 @@ stages:
     outs:
       - artifacts/data_ingestion/data
 
-
-  prepare_base_model:
-    cmd: python src/sign_language_conversion/pipeline/stage_02_prepare_dataset_pickle.py
-    deps:
-      - src/sign_language_conversion/pipeline/stage_02_prepare_dataset_pickle.py
-      - config/config.yaml
-    outs:
-      - artifacts/prepare_dataset/root_dir/data.pickle 
-
-
   training:
     cmd: python src/sign_language_conversion/pipeline/stage_03_training_model.py
     deps:
       - src/sign_language_conversion/pipeline/stage_03_training_model.py
       - config/config.yaml
-      - artifacts/prepare_dataset/root_dir/data.pickle
+      - artifacts/data_ingestion/root_dir/data.pickle
     params:
     n_estimators
     criterion
@@ -35,7 +25,7 @@ stages:
     deps:
       - src/sign_language_conversion/pipeline/stage_04_model_evaluation.py
       - config/config.yaml
-      - artifacts/prepare_dataset/root_dir/data.pickle 
+      - artifacts/data_ingestion/root_dir/data.pickle 
       - artifacts/training/model.pkl
     params:
     n_estimators
