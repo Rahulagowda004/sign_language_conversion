@@ -2,9 +2,9 @@ artifacts_root: artifacts
 
 data_ingestion:
   root_dir: artifacts/data_ingestion
-  source_URL: https://drive.google.com/file/d/1vbz33uarAaRqm6iGHVIxBUhBxhkdfdUe/view?usp=sharing
+  source_URL: https://drive.google.com/file/d/1agAcpoC9TnIXcej8cp2bHE0dvlaLFqem/view?usp=sharing
   local_data_file: artifacts/data_ingestion/data.zip
-  unzip_dir: artifacts/data_ingestion/data
+  unzip_dir: artifacts/data_ingestion
 
 prepare_dataset: 
   root_dir: artifacts/prepare_dataset
