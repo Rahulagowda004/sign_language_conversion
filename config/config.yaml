@@ -6,25 +6,7 @@ data_ingestion:
   local_data_file: artifacts/data_ingestion/data.zip
   unzip_dir: artifacts/data_ingestion
 
-<<<<<<< HEAD
 prepare_dataset: 
   root_dir: artifacts/prepare_dataset/root_dir
   dataset_path: artifacts/prepare_dataset
-  
-prepare_base_model:
-  root_dir: artifacts/prepare_base_model
-  base_model_path: artifacts/prepare_base_model/base_model.h5
-  updated_base_model_path: artifacts/prepare_base_model/base_model_updated.h5
-  
 
-training:
-  root_dir: artifacts/training
-  trained_model_path: artifacts/training/model.h5
-
-testing:
-  root_dir: artifacts/testing
-=======
-prepare_dataset:
-  root_dir: artifacts/prepare_dataset/root_dir
-  dataset_path: artifacts/prepare_dataset
->>>>>>> e2fc0d2120d344b877b7d01e2d996d006ce8dee1
