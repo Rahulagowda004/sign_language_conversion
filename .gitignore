@@ -172,3 +172,5 @@ beta_code/data/*
 beta_code/asl_dataset/*
 
 beta_code/handataset/*
+
+mlruns/*
