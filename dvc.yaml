@@ -1,8 +1,45 @@
 stages:
   data_ingestion:
-    cmd: python src/sing_language_conversion/pipeline/stage_01_data_ingestion.py
+    cmd: python src/sign_language_conversion/pipeline/stage_01_data_ingestion.py
     deps:
       - src/sign_language_conversion/pipeline/stage_01_data_ingestion.py
       - config/config.yaml
     outs:
+      - artifacts/data_ingestion/data
+
+
+  prepare_base_model:
+    cmd: python src/sign_language_conversion/pipeline/stage_02_prepare_dataset_pickle.py
+    deps:
+      - src/sign_language_conversion/pipeline/stage_02_prepare_dataset_pickle.py
+      - config/config.yaml
+    outs:
+      - artifacts/prepare_dataset/root_dir/data.pickle 
+
+
+  training:
+    cmd: python src/sign_language_conversion/pipeline/stage_03_training_model.py
+    deps:
+      - src/sign_language_conversion/pipeline/stage_03_training_model.py
+      - config/config.yaml
+      - artifacts/prepare_dataset/root_dir/data.pickle
+    params:
+    n_estimators
+    criterion
+    outs:
+      - artifacts/training/model.pkl
+
+
+  evaluation:
+    cmd: python src/sign_language_conversion/pipeline/stage_04_model_evaluation.py
+    deps:
+      - src/sign_language_conversion/pipeline/stage_04_model_evaluation.py
+      - config/config.yaml
       - artifacts/data_ingestion/kidney-ct-scan-image
+      - artifacts/training/model.h5
+    params:
+    n_estimators
+    criterion
+    metrics:
+    - scores.json:
+        cache: false
