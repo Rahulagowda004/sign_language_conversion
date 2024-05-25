@@ -29,8 +29,8 @@ stages:
       size: 485
     - path: src/sign_language_conversion/pipeline/stage_02_training_model.py
       hash: md5
-      md5: 9b3f1ced4d5f085e481611be7045c478
-      size: 881
+      md5: 8f469248fce2c80fca1a00abeb4ffd19
+      size: 879
     params:
       params.yaml:
         criterion: gini
@@ -38,5 +38,5 @@ stages:
     outs:
     - path: artifacts/training/model.pkl
       hash: md5
-      md5: b410a14408d18b80a7e69632d1ea4b17
-      size: 4038696
+      md5: fa26e16697e849daa57fb7abb8072888
+      size: 4059425
