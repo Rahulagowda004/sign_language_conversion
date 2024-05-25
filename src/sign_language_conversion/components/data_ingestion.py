@@ -8,13 +8,11 @@ from sign_language_conversion.entity.config_entity import (DataIngestionConfig)
 class DataIngestion:
     def __init__(self, config: DataIngestionConfig):
         self.config = config
-
     
     def download_file(self)-> str:
         '''
         Fetch data from the url
         '''
-
         try: 
             dataset_url = self.config.source_URL
             zip_download_dir = self.config.local_data_file

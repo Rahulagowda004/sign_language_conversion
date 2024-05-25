@@ -1,6 +1,6 @@
 from sign_language_conversion.constants import *
 from sign_language_conversion.utils.common import read_yaml, create_directories,save_json
-from sign_language_conversion.entity.config_entity import (DataIngestionConfig,Preparedataset,TrainingConfig,EvaluationConfig)
+from sign_language_conversion.entity.config_entity import (DataIngestionConfig,TrainingConfig,EvaluationConfig)
 import os
 
 class ConfigurationManager:
@@ -26,25 +26,12 @@ class ConfigurationManager:
             local_data_file=config.local_data_file,
             unzip_dir=config.unzip_dir 
         )
-
         return data_ingestion_config
 
-    def get_prepare_dataset(self) -> Preparedataset:
-        config = self.config.prepare_dataset
-
-        create_directories([config.root_dir])
-
-        prepare_dataset_pickle = Preparedataset(
-            root_dir=Path(config.root_dir),
-            dataset=Path(config.dataset_path)
-        )
-
-        return prepare_dataset_pickle
-    
     def get_training_config(self) -> TrainingConfig:
         training = self.config['training']
         params = self.params
-        dataset_path = os.path.join(self.config.prepare_dataset.root_dir, "data.pickle")
+        dataset_path = os.path.join(self.config.data_ingestion.root_dir, "data.pickle")
         create_directories([Path(training['root_dir'])])
         training_config = TrainingConfig(
             root_dir=Path(training['root_dir']),
@@ -57,7 +44,7 @@ class ConfigurationManager:
     def get_evaluation_config(self) -> EvaluationConfig:
         eval_config = EvaluationConfig(
             path_of_model=Path("model/model.pkl"),
-            training_data=Path("artifacts/prepare_dataset/root_dir/data.pickle"),
+            training_data=Path("artifacts\\data_ingestion\\data.pickle"),
             mlflow_uri="https://dagshub.com/Rahulagowda004/sign_language_conversion.mlflow",
             all_params=self.params
         )

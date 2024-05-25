@@ -10,11 +10,6 @@ class DataIngestionConfig:
     unzip_dir: Path
     
 @dataclass(frozen=True)
-class Preparedataset:
-    root_dir: Path
-    dataset: Path
-    
-@dataclass(frozen=True)
 class TrainingConfig:
     root_dir: Path
     trained_model_path: Path
