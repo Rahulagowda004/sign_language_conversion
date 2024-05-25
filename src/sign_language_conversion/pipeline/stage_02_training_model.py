@@ -5,7 +5,6 @@ from sign_language_conversion import logger
 
 STAGE_NAME = "Prepare base model"
 
-
 class TrainingModel:
     def __init__(self):
         pass

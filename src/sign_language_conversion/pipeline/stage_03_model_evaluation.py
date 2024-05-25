@@ -1,10 +1,9 @@
 from sign_language_conversion.config.configuration import ConfigurationManager
-from sign_language_conversion.components.model_evalution import Evaluation
+from sign_language_conversion.components.model_evaluation import Evaluation
 from sign_language_conversion import logger
 
 
 STAGE_NAME = "Prepare base model"
-
 
 class ModelEvaluation:
     def __init__(self):
