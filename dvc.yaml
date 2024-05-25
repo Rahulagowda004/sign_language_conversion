@@ -35,8 +35,8 @@ stages:
     deps:
       - src/sign_language_conversion/pipeline/stage_04_model_evaluation.py
       - config/config.yaml
-      - artifacts/data_ingestion/kidney-ct-scan-image
-      - artifacts/training/model.h5
+      - artifacts/prepare_dataset/root_dir/data.pickle 
+      - artifacts/training/model.pkl
     params:
     n_estimators
     criterion
