@@ -10,3 +10,6 @@ prepare_dataset:
   root_dir: artifacts/prepare_dataset/root_dir
   dataset_path: artifacts/prepare_dataset
 
+training:
+  root_dir: artifacts/training
+  trained_model_path: artifacts/training/model.pkl
