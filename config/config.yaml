@@ -2,10 +2,11 @@ artifacts_root: artifacts
 
 data_ingestion:
   root_dir: artifacts/data_ingestion
-  source_URL: https://drive.google.com/file/d/1QRmNeqh-HLgVnmzibOlGdENX8008N0rF/view?usp=drive_link
+  source_URL: https://drive.google.com/file/d/1vbz33uarAaRqm6iGHVIxBUhBxhkdfdUe/view?usp=sharing
   local_data_file: artifacts/data_ingestion/data.zip
   unzip_dir: artifacts/data_ingestion
 
+<<<<<<< HEAD
 prepare_dataset: 
   root_dir: artifacts/prepare_dataset/root_dir
   dataset_path: artifacts/prepare_dataset
@@ -22,3 +23,8 @@ training:
 
 testing:
   root_dir: artifacts/testing
+=======
+prepare_dataset:
+  root_dir: artifacts/prepare_dataset/root_dir
+  dataset_path: artifacts/prepare_dataset
+>>>>>>> e2fc0d2120d344b877b7d01e2d996d006ce8dee1
