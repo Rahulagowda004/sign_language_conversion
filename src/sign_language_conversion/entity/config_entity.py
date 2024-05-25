@@ -14,3 +14,9 @@ class Preparedataset:
     root_dir: Path
     dataset: Path
     
+@dataclass(frozen=True)
+class TrainingConfig:
+    root_dir: Path
+    trained_model_path: Path
+    dataset_path: Path
+    n_estimators: int
