@@ -5,11 +5,10 @@ import numpy as np
 import pickle
 import cv2
 import mediapipe as mp
-import os
 
 class HandGestureRecognition:
     def __init__(self):
-        model_path = 'D:\\temp\\model1.p'
+        model_path = 'model/model.pkl'
         with open(model_path, 'rb') as file:
             model_dict = pickle.load(file)
         self.model = model_dict['model']

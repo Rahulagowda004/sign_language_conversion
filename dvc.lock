@@ -68,3 +68,14 @@ stages:
       hash: md5
       md5: 38cc40de7ed50f958d3800e99e342eca
       size: 31
+  predict:
+    cmd: python src/sign_language_conversion/pipeline/prediction.py
+    deps:
+    - path: model/model.pkl
+      hash: md5
+      md5: b6a9f8b43d6bd6a8c4af09726b61996e
+      size: 2057145
+    - path: src/sign_language_conversion/pipeline/prediction.py
+      hash: md5
+      md5: 76a95d64288a62d00d2ffa3dc2cc1e11
+      size: 3802

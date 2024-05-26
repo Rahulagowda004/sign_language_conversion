@@ -32,3 +32,9 @@ stages:
     metrics:
     - scores.json:
         cache: false
+
+  predict:
+    cmd: python src/sign_language_conversion/pipeline/prediction.py
+    deps:
+      - src/sign_language_conversion/pipeline/prediction.py
+      - model/model.pkl
