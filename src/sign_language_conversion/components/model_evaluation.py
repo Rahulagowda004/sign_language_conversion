@@ -7,7 +7,7 @@ import json
 import pickle
 import numpy as np
 from pathlib import Path
-from src.sign_language_conversion.entity.config_entity import EvaluationConfig
+from sign_language_conversion.entity.config_entity import EvaluationConfig
 
 class Evaluation:
     def __init__(self, config: EvaluationConfig):

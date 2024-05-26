@@ -16,13 +16,13 @@ class ModelEvaluation:
         evaluation.evaluation()
         # evaluation.log_into_mlflow()
         
-    if __name__ == '__main__':
-        try:
-            logger.info(f"*******************")
-            logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
-            obj = ModelEvaluation()
-            obj.main()
-            logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
-        except Exception as e:
-            logger.exception(e)
-            raise e
+if __name__ == '__main__':
+    try:
+        logger.info(f"*******************")
+        logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
+        obj = ModelEvaluation()
+        obj.main()
+        logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
+    except Exception as e:
+        logger.exception(e)
+        raise e

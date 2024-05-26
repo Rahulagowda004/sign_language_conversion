@@ -24,11 +24,11 @@ stages:
     deps:
       - src/sign_language_conversion/pipeline/stage_03_model_evaluation.py
       - config/config.yaml
-      - artifacts/data_ingestion/data.pickle 
-      - artifacts/training/model.pkl
+      - artifacts\data_ingestion\data.pickle
+      - artifacts\training\model.pkl
     params:
       - n_estimators
       - criterion
     metrics:
-      - scores.json:
-          cache: false
+    - scores.json:
+        cache: false
