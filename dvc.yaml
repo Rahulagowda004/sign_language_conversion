@@ -17,7 +17,7 @@ stages:
       - n_estimators
       - criterion
     outs:
-      - artifacts/training/model.pkl
+      - artifacts/training/model.p
 
   evaluation:
     cmd: python src/sign_language_conversion/pipeline/stage_03_model_evaluation.py
