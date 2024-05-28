@@ -176,3 +176,5 @@ beta_code/handataset/*
 mlruns/*
 
 scores.json
+
+Betacode/*
