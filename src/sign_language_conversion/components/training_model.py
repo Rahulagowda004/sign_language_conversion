@@ -41,7 +41,7 @@ class Training:
 
         print(f'{score * 100:.2f}% of samples were classified correctly!')
 
-        model_save_path = Path('model1.p')
+        model_save_path = Path('model.p')
         with open(model_save_path, 'wb') as f:
             pickle.dump({'model': self.model}, f)
 
