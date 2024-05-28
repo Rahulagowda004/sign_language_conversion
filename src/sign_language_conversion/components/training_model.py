@@ -9,19 +9,16 @@ from sign_language_conversion.entity.config_entity import TrainingConfig
 class Training:
     def __init__(self, config: TrainingConfig):
         self.config = config
-        self.model = RandomForestClassifier(
-            n_estimators=config.n_estimators
-        )
+        self.model = RandomForestClassifier(n_estimators=config.n_estimators)
 
     def train(self):
-        data_path = Path(self.config.trained_model_path)
+        data_path = Path(self.config.dataset_path)
         with open(data_path, 'rb') as f:
             data_dict = pickle.load(f)
 
         data = np.asarray(data_dict['data'])
         labels = np.asarray(data_dict['labels'])
 
-        # Check if the number of samples is sufficient for splitting
         if len(data) == 0 or len(labels) == 0:
             print("Error: Insufficient data for splitting.")
             return
@@ -29,7 +26,6 @@ class Training:
         x_train, x_test, y_train, y_test = train_test_split(
             data, labels, test_size=0.2, shuffle=True, stratify=labels)
 
-        # Check if the resulting train set will be empty
         if len(x_train) == 0 or len(y_train) == 0:
             print("Error: Insufficient data for training.")
             return
@@ -41,7 +37,7 @@ class Training:
 
         print(f'{score * 100:.2f}% of samples were classified correctly!')
 
-        model_save_path = Path(self.config.trained_model_path)
+        model_save_path = Path('model.p')
         with open(model_save_path, 'wb') as f:
             pickle.dump({'model': self.model}, f)
 

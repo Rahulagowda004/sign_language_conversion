@@ -5,28 +5,28 @@ stages:
     deps:
     - path: config/config.yaml
       hash: md5
-      md5: 589c18d48860e2963ff852e69e7043fa
-      size: 483
+      md5: 6c7e0f5204a74bc08a2f668ae1f4b987
+      size: 360
     - path: src/sign_language_conversion/pipeline/stage_01_data_ingestion.py
       hash: md5
       md5: 8442de5304aa6314320d80d59fa19cd0
       size: 935
     outs:
-    - path: artifacts\data_ingestion\data.pickle
+    - path: artifacts/data_ingestion/data.pickle
       hash: md5
       md5: 38f3caffc20663a6ea87322a0656101a
       size: 1122491
   training:
     cmd: python src/sign_language_conversion/pipeline/stage_02_training_model.py
     deps:
-    - path: artifacts\data_ingestion\data.pickle
+    - path: artifacts/data_ingestion/data.pickle
       hash: md5
       md5: 38f3caffc20663a6ea87322a0656101a
       size: 1122491
     - path: config/config.yaml
       hash: md5
-      md5: e6d2baaab3c42f1953df88a710a2f598
-      size: 485
+      md5: 6c7e0f5204a74bc08a2f668ae1f4b987
+      size: 360
     - path: src/sign_language_conversion/pipeline/stage_02_training_model.py
       hash: md5
       md5: 8f469248fce2c80fca1a00abeb4ffd19
@@ -36,25 +36,25 @@ stages:
         criterion: gini
         n_estimators: 200
     outs:
-    - path: artifacts/training/model.pkl
+    - path: artifacts/training/model.p
       hash: md5
-      md5: a2c7d640a2cebbfccb3701d9e9672553
-      size: 4087249
+      md5: 74b183cbb52140797f5c67aa0ae7e6f1
+      size: 4076001
   evaluation:
     cmd: python src/sign_language_conversion/pipeline/stage_03_model_evaluation.py
     deps:
-    - path: artifacts\data_ingestion\data.pickle
+    - path: artifacts/data_ingestion/data.pickle
       hash: md5
       md5: 38f3caffc20663a6ea87322a0656101a
       size: 1122491
-    - path: artifacts\training\model.pkl
+    - path: artifacts/training/model.p
       hash: md5
-      md5: a2c7d640a2cebbfccb3701d9e9672553
-      size: 4087249
+      md5: 74b183cbb52140797f5c67aa0ae7e6f1
+      size: 4076001
     - path: config/config.yaml
       hash: md5
-      md5: e6d2baaab3c42f1953df88a710a2f598
-      size: 485
+      md5: 6c7e0f5204a74bc08a2f668ae1f4b987
+      size: 360
     - path: src/sign_language_conversion/pipeline/stage_03_model_evaluation.py
       hash: md5
       md5: 54d731bc3aacacad75ea0077d1128377

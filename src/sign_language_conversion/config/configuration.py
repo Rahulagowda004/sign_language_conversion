@@ -31,11 +31,11 @@ class ConfigurationManager:
     def get_training_config(self) -> TrainingConfig:
         training = self.config['training']
         params = self.params
-        dataset_path = os.path.join(self.config.data_ingestion.root_dir, "data.pickle")
+        dataset_path = os.path.join(self.config['data_ingestion']['root_dir'], "data.pickle")
         create_directories([Path(training['root_dir'])])
         training_config = TrainingConfig(
             root_dir=Path(training['root_dir']),
-            trained_model_path=Path(training['trained_model_path']),
+            trained_model_path=Path(training['trained_model_path']) / "model.p",
             dataset_path=Path(dataset_path),
             n_estimators=params['n_estimators']
         )
