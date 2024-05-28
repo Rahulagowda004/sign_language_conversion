@@ -38,8 +38,8 @@ stages:
     outs:
     - path: artifacts/training/model.pkl
       hash: md5
-      md5: fa26e16697e849daa57fb7abb8072888
-      size: 4059425
+      md5: a2c7d640a2cebbfccb3701d9e9672553
+      size: 4087249
   evaluation:
     cmd: python src/sign_language_conversion/pipeline/stage_03_model_evaluation.py
     deps:
@@ -49,8 +49,8 @@ stages:
       size: 1122491
     - path: artifacts\training\model.pkl
       hash: md5
-      md5: fa26e16697e849daa57fb7abb8072888
-      size: 4059425
+      md5: a2c7d640a2cebbfccb3701d9e9672553
+      size: 4087249
     - path: config/config.yaml
       hash: md5
       md5: e6d2baaab3c42f1953df88a710a2f598
@@ -66,8 +66,8 @@ stages:
     outs:
     - path: scores.json
       hash: md5
-      md5: 38cc40de7ed50f958d3800e99e342eca
-      size: 31
+      md5: 7d9813465cfd79c733d9f396fc2f78f4
+      size: 19
   predict:
     cmd: python src/sign_language_conversion/pipeline/prediction.py
     deps:
