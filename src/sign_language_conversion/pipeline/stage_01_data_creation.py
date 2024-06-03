@@ -1,24 +1,23 @@
 from sign_language_conversion.config.configuration import ConfigurationManager
-from sign_language_conversion.components.data_ingestion import DataIngestion
+from sign_language_conversion.components.data_creation import Data_Creation
 from sign_language_conversion import logger
 
-STAGE_NAME = "Data Ingestion stage"
+STAGE_NAME = "Data Creation stage"
 
-class DataIngestionTrainingPipeline:
+class DataCreationPipeline:
     def __init__(self):
         pass
 
     def main(self):
         config = ConfigurationManager()
-        data_ingestion_config = config.get_data_ingestion_config()
-        data_ingestion = DataIngestion(config=data_ingestion_config)
-        data_ingestion.download_file()
-        data_ingestion.extract_zip_file()
+        data_creation_config = config.get_creation()
+        data_creator = Data_Creation(config=data_creation_config)
+        data_creator.capture_data()
 
 if __name__ == '__main__':
     try:
         logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
-        obj = DataIngestionTrainingPipeline()
+        obj = DataCreationPipeline()
         obj.main()
         logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
     except Exception as e:
