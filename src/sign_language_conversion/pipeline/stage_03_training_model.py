@@ -3,7 +3,7 @@ from sign_language_conversion.components.training_model import Training
 from sign_language_conversion import logger
 
 
-STAGE_NAME = "Prepare base model"
+STAGE_NAME = "Training the Model"
 
 class TrainingModel:
     def __init__(self):

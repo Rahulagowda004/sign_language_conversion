@@ -3,6 +3,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 import numpy as np
+import tensorflow as tf
 from pathlib import Path
 from sign_language_conversion.entity.config_entity import TrainingConfig
 
@@ -15,20 +16,19 @@ class Training:
         data_path = Path(self.config.dataset_path)
         with open(data_path, 'rb') as f:
             data_dict = pickle.load(f)
-
+            
         data = np.asarray(data_dict['data'])
         labels = np.asarray(data_dict['labels'])
+        
+        max_len = max(len(item) for item in data)
+        data_padded = tf.keras.preprocessing.sequence.pad_sequences(data, maxlen=max_len, padding='post', dtype='float32')
 
-        if len(data) == 0 or len(labels) == 0:
-            print("Error: Insufficient data for splitting.")
-            return
-
-        x_train, x_test, y_train, y_test = train_test_split(
-            data, labels, test_size=0.2, shuffle=True, stratify=labels)
-
-        if len(x_train) == 0 or len(y_train) == 0:
-            print("Error: Insufficient data for training.")
-            return
+        # Convert to numpy arrays
+        data_padded = np.asarray(data_padded)
+        labels = np.asarray(labels)
+                    
+        # Split the data into training and testing sets
+        x_train, x_test, y_train, y_test = train_test_split(data_padded, labels, test_size=0.2, shuffle=True, stratify=labels)
 
         self.model.fit(x_train, y_train)
 
@@ -39,7 +39,7 @@ class Training:
 
         model_save_path = Path(self.config.trained_model_path)
         with open(model_save_path, 'wb') as f:
-            pickle.dump({'model': self.model}, f)
+            pickle.dump({'model.pkl': self.model}, f)
 
         self.save_model(
             path=self.config.trained_model_path,
