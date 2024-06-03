@@ -4,6 +4,10 @@ data_creation:
   root_dir: artifacts/data_creation
   raw_dataset: artifacts/data_creation
 
+data_pickle: 
+  root_dir: artifacts/data_pickle
+  pickle_dataset : artifacts/data_pickle
+
 data_ingestion:
   root_dir: artifacts/data_ingestion
   source_URL: https://drive.google.com/file/d/1agAcpoC9TnIXcej8cp2bHE0dvlaLFqem/view?usp=sharing
