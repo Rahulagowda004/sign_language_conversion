@@ -24,24 +24,24 @@ from sign_language_conversion.pipeline.prediction import HandGestureRecognition
 #     logger.exception(e)
 #     raise e
 
-STAGE_NAME = "Training the Model"
-try:
-    logger.info(f"*******************")
-    logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
-    obj = TrainingModel()
-    obj.main()
-    logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
-except Exception as e:
-    logger.exception(e)
-    raise e
-
-# STAGE_NAME = "Prediction of Model"
+# STAGE_NAME = "Training the Model"
 # try:
-#     logger.info("*******************")
+#     logger.info(f"*******************")
 #     logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
-#     obj = HandGestureRecognition()
-#     obj.recognize_gesture()
+#     obj = TrainingModel()
+#     obj.main()
 #     logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
 # except Exception as e:
 #     logger.exception(e)
 #     raise e
+
+STAGE_NAME = "PREDICTION OF THE MODEL"
+try:
+    logger.info("*******************")
+    logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
+    obj = HandGestureRecognition()
+    obj.recognize_gesture()
+    logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
+except Exception as e:
+    logger.exception(e)
+    raise e
