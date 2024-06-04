@@ -11,5 +11,3 @@ data_pickle:
 training:
   root_dir: artifacts/training
   trained_model_path: artifacts/training
-
-  
